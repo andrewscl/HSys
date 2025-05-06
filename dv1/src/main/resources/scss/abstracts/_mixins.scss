@@ -1,0 +1,6 @@
+@mixin corporate-font($size: 1rem, $weight: 400) {
+    font-family: 'Roboto', sans-serif;
+    font-size: $size;
+    font-weight: $weight;
+    letter-spacing: 0.02em;
+}

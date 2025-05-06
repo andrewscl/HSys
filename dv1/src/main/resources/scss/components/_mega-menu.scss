@@ -1,0 +1,179 @@
+@use '../abstracts/mixins' as *;
+
+$primary-color: #222;
+$hover-color: #555;
+$background-solid: #ffffff;
+$background-transparent: transparent;
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 1rem 2rem;
+    z-index: 1000;
+    transition: background-color 0.4s, box-shadow 0.4s;
+
+    // Estado transparente inicial
+    &.transparent {
+      background-color: transparent;
+    }
+
+    // Estado con fondo sólido al hacer scroll
+    &.solid {
+      background-color: $background-solid;
+        .nav-links > li > a {
+              color: $primary-color;
+              &:hover {
+                color: $hover-color;
+              }
+        }
+    }
+
+    .mega-menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+
+    .logo-container{
+      position: relative;
+      height: 6vh;
+      min-height: 40px;
+      max-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .logo{
+        position: absolute;
+        height: 100%;
+        transition: opacity 0.3s ease;
+        &.hidden{
+          opacity: 0;
+          visibility: hidden;
+        }
+        &.visible{
+          opacity: 1;
+          visibility: visible;
+        }
+      }        
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: white;
+    }
+    .nav-links {
+      position: relative;
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+
+      li {
+
+        a {
+          @include corporate-font(1.2rem, 500);
+          text-decoration: none;
+          color: white;
+          transition: color 0.3s ease;
+        }
+
+        &:hover a {
+          color: #3CB371;
+        }
+
+        .mega-menu {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          max-width: 100vw;
+          box-sizing: border-box;
+          background-color: #f9f9f9;
+          padding: 2rem;
+          display: none;
+          justify-content: space-around;
+          border-top: 3px solid #0077ff;
+          .mega-column {
+            display: block;
+            flex-direction: column;
+
+            h6 {
+              font-size: 1rem;
+              font-weight: bold;
+              margin-bottom: 0.5rem;
+            }
+
+            a {
+              padding: 0.3rem 0;
+              color: $primary-color;
+
+              &:hover {
+                color: $hover-color;
+              }
+            }
+          }
+        }
+
+        &:hover .mega-menu {
+          display: flex;
+          animation: fadeInDown 0.3s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+// Responsividad para móviles
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+
+    .menu-toggle {
+      display: block;
+    }
+
+    .nav-links {
+      flex-direction: column;
+      position: absolute;
+      top: 70px;
+      right: 0;
+      width: 100%;
+      background-color: white;
+      display: none;
+      padding: 1rem 2rem;
+
+      &.open {
+        display: flex;
+      }
+
+      li a {
+        color: $primary-color;
+      }
+
+      .mega-menu {
+        position: static;
+        flex-direction: column;
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        padding: 1rem 0;
+      }
+    }
+  }
+}
+
+// Animación de entrada para dropdown
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

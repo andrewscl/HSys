@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSys Systems</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div th:replace=~{fragments/mega-menu::mega-menu}></div>
+
+    <div class="slideshow-video-container">
+
+        <div class="slide video-slide active">
+            <video autoplay muted loop playsinline>
+              <source th:src="@{/videos/CitySmall.mp4}" type="video/mp4">
+              Tu navegador no soporta videos HTML5.
+            </video>
+        </div>
+
+        <div class="slide video-slide">
+            <video autoplay muted loop playsinline>
+              <source th:src="@{/videos/Business.mp4}" type="video/mp4">
+              Tu navegador no soporta videos HTML5.
+            </video>
+        </div>
+
+        <div class="slide video-slide">
+            <video autoplay muted loop playsinline>
+              <source th:src="@{/videos/trees.mp4}" type="video/mp4">
+              Tu navegador no soporta videos HTML5.
+            </video>
+        </div>
+
+        <button class="nav prev">&#10094;</button>
+        <button class="nav next">&#10095;</button>
+
+        <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+
+    <div th:replace="~{fragments/launcher::launcher}"></div>
+    
+    <script th:src="@{/js/slideshow.js}"></script>
+    <script th:src="@{/js/mega-menu.js}"></script>
+    <script th:src="@{/js/launcher.js}"></script>
+    
+</body>
+</html>
