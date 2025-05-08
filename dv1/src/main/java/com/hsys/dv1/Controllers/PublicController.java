@@ -21,16 +21,37 @@ public class PublicController {
         return "index";
     }
 
-    @GetMapping ("/public/signup")
+    @GetMapping ("/auth/signup")
     public String showSignUpForm (Model model){
         model.addAttribute("user", new User());
-        return "signup";
+        return "auth/signup";
     }
 
-    @PostMapping("/public/signup")
+    @PostMapping("/auth/signup")
     public String processSingUpForm (User user, Model model){
+
+        try {
         signUpService.register(user);
-        return "redirect:/public/login";
+        return "redirect:/auth/signin";
+        } catch (RuntimeException e) {
+            if(e.getMessage().equals("Username already exists")) {
+                model.addAttribute("error",
+                "Nombre de usuario ya se encuentra registrado.");
+                return "/auth/signup";
+            } else {
+                model.addAttribute("error",
+                "Ocurrio un error durante el resgistro");
+                return "/auth/signup";
+            }
+        }
+
     }
+
+    @GetMapping ("/auth/signin")
+    public String showSignInForm (Model model){
+        model.addAttribute("user", new User());
+        return "auth/signin";
+    }
+
 
 }

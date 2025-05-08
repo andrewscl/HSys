@@ -1,7 +1,7 @@
 <!-- mega-menu Fragment -->
 <nav th:fragment="mega-menu" id="navbar" class="navbar transparent" role="navigation">
 
-    <div class="mega-menu-container">
+    <div class="mega-menu-content">
 
         <!-- Logo -->
         <div id="logo-container" class="logo-container">
@@ -19,10 +19,10 @@
         <!-- Enlaces de navegación -->
         <ul id="nav-links" class="nav-links">
 
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Nosotros</a></li>
+            <li class="nav-item"><a href="#">Inicio</a></li>
+            <li class="nav-item"><a href="#">Nosotros</a></li>
 
-            <li class="has-mega-menu">
+            <li class="nav-item has-mega-menu">
                 <a href="#">Aplicaciones</a>
                 <div class="mega-menu">
                     <div class="mega-column">
@@ -43,7 +43,7 @@
                 </div>
             </li>
 
-            <li class="has-mega-menu">
+            <li class="nav-item has-mega-menu">
                 <a href="#">Servicios</a>
                 <div class="mega-menu">
                     <div class="mega-column">
@@ -64,19 +64,40 @@
                 </div>
             </li>
 
-            <li class="has-mega-menu">
+            <li class="nav-item has-mega-menu">
+                <a href="#">Contacto</a>
+                <div class="mega-menu">
+                    <div class="mega-column">
+                        <h6>Columna 1</h6>
+                        <a href="#">Enlace 1</a>
+                        <a href="#">Enlace 2</a>
+                    </div>
+                    <div class="mega-column">
+                        <h6>Columna 2</h6>
+                        <a href="#">Enlace 1</a>
+                        <a href="#">Enlace 2</a>
+                    </div>
+                    <div class="mega-column">
+                        <h6>Columna 3</h6>
+                        <a href="#">Enlace 1</a>
+                        <a href="#">Enlace 2</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item has-mega-menu">
                 <a href="#">Acceso</a>
                 <div class="mega-menu">
                     <div class="mega-column">
                         <h6>Accesos</h6>
-                        <a href="#">Administrador</a>
-                        <a href="#">Usuario</a>
+                        <a th:href="@{/auth/signup}">Registrarse</a>
+                        <a href="#">signin</a>
                     </div>
                 </div>
             </li>
 
         </ul>
-
+    
     </div>
 
 </nav>

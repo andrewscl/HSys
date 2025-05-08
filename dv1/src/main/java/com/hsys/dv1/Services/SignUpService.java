@@ -18,7 +18,7 @@ public class SignUpService {
     public void register (User user) {
         //Validar que no exista el user name
         if(userRepository.findByUsername(user.getUsername()) != null) {
-            throw new RuntimeException("Usrename already exists");
+            throw new RuntimeException("Username already exists");
         }
 
         //codificar contraseña

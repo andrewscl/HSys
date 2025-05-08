@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign in</title>
 </head>
 <body>
 
-    <h2>Registro de Usuario</h2>
-    <form th:action="@{/auth/signup}" method="post" th:object="${user}">
+    <h2>Autenticación de Usuario</h2>
+    <form th:action="@{/auth/signin}" method="post" th:object="${user}">
         <label for="username">Username:</label>
         <input type="text" th:field="*{username}" /><br/>
     

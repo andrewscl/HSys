@@ -32,7 +32,7 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authz -> authz
-                .requestMatchers("/", "/public/**", "/css/**", "/js/**",
+                .requestMatchers("/", "/auth/**", "/public/**", "/css/**", "/js/**",
                 "/img/**", "/videos/**").permitAll() //publicas
                 .requestMatchers("/hsys/**").authenticated() //requiere JWT valido
                 .requestMatchers("/hsys/admin").hasAuthority("ADMIN") //requiere rol ADMIN en el JWT
