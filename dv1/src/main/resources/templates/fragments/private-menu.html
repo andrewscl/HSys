@@ -1,0 +1,102 @@
+<!-- mega-menu Fragment -->
+<nav th:fragment="private-menu" id="private-navbar" class="private-navbar transparent" role="navigation">
+
+    <div class="private-menu-content">
+
+        <!-- Logo -->
+        <div id="logo-container" class="logo-container">
+            <img class="logo" th:src="@{/img/Logo HSys.png}" alt="Logo" />
+        </div>
+
+        <!-- Botón hamburguesa para dispositivos móviles -->
+        <button id="menu-toggle" class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Enlaces de navegación -->
+        <ul id="nav-links" class="nav-links">
+
+            <li class="nav-item"><a href="#">Inicio</a></li>
+            <li class="nav-item"><a href="#">Nosotros</a></li>
+
+            <li class="nav-item has-mega-menu">
+                <a href="#">Aplicaciones</a>
+                <div class="mega-menu">
+                    <div class="mega-column">
+                        <h6>Recursos Humanos</h6>
+                        <a th:href="@{/hsys/employees}">Empleados</a>
+                        <a href="#">Enlace 2</a>
+                    </div>
+                    <div class="mega-column">
+                        <h6>Operaciones</h6>
+                        <a href="#">Enlace 1</a>
+                        <a href="#">Enlace 2</a>
+                    </div>
+                    <div class="mega-column">
+                        <h6>Contabilidad</h6>
+                        <a href="#">Enlace 1</a>
+                        <a href="#">Enlace 2</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item has-mega-menu">
+                <a href="#">Servicios</a>
+                <div class="mega-menu">
+                    <div class="mega-column">
+                        <h6>Columna 1</h6>
+                        <a href="#">Enlace 1</a>
+                        <a href="#">Enlace 2</a>
+                    </div>
+                    <div class="mega-column">
+                        <h6>Columna 2</h6>
+                        <a href="#">Enlace 1</a>
+                        <a href="#">Enlace 2</a>
+                    </div>
+                    <div class="mega-column">
+                        <h6>Columna 3</h6>
+                        <a href="#">Enlace 1</a>
+                        <a href="#">Enlace 2</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item has-mega-menu">
+                <a href="#">Contacto</a>
+                <div class="mega-menu">
+                    <div class="mega-column">
+                        <h6>Columna 1</h6>
+                        <a href="#">Enlace 1</a>
+                        <a href="#">Enlace 2</a>
+                    </div>
+                    <div class="mega-column">
+                        <h6>Columna 2</h6>
+                        <a href="#">Enlace 1</a>
+                        <a href="#">Enlace 2</a>
+                    </div>
+                    <div class="mega-column">
+                        <h6>Columna 3</h6>
+                        <a href="#">Enlace 1</a>
+                        <a href="#">Enlace 2</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item has-mega-menu">
+                <a href="#">Acceso</a>
+                <div class="mega-menu">
+                    <div class="mega-column">
+                        <h6>Accesos</h6>
+                        <a th:href="@{/auth/signup}">Registrarse</a>
+                        <a th:href="@{/auth/signin}">Acceder</a>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+    
+    </div>
+
+</nav>

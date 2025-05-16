@@ -3,55 +3,23 @@ package com.hsys.dv1.Controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.hsys.dv1.Entities.User;
-import com.hsys.dv1.Services.SignUpService;
+import com.hsys.dv1.Services.AppService;
 
 import lombok.RequiredArgsConstructor;
 
 @Controller
+@RequestMapping("/public")
 @RequiredArgsConstructor
 public class PublicController {
 
-    private final SignUpService signUpService;
+    private final AppService appService;
 
-    @GetMapping("/public/home")
-    public String showHomePage () {
+    @GetMapping("/home")
+    public String showHomePage (Model model) {
+        model.addAttribute("apps", appService.findPublicApps());
         return "index";
     }
-
-    @GetMapping ("/auth/signup")
-    public String showSignUpForm (Model model){
-        model.addAttribute("user", new User());
-        return "auth/signup";
-    }
-
-    @PostMapping("/auth/signup")
-    public String processSingUpForm (User user, Model model){
-
-        try {
-        signUpService.register(user);
-        return "redirect:/auth/signin";
-        } catch (RuntimeException e) {
-            if(e.getMessage().equals("Username already exists")) {
-                model.addAttribute("error",
-                "Nombre de usuario ya se encuentra registrado.");
-                return "/auth/signup";
-            } else {
-                model.addAttribute("error",
-                "Ocurrio un error durante el resgistro");
-                return "/auth/signup";
-            }
-        }
-
-    }
-
-    @GetMapping ("/auth/signin")
-    public String showSignInForm (Model model){
-        model.addAttribute("user", new User());
-        return "auth/signin";
-    }
-
 
 }

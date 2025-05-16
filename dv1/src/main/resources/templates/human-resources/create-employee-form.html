@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingreso de Personal Avanzado</title>
+    <link rel="stylesheet" href="css/create_employee_form.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ingreso de Personal</h1>
+        <form id="employeeForm" th:action="@{/employees/save}" th:object="${employee}" method="post">
+            <div class="form-section">
+                <h2>Información Personal</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="nombres">Nombres:</label>
+                        <input type="text" id="nombres" th:field="*{nombres}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidos">Apellidos:</label>
+                        <input type="text" id="apellidos" th:field="*{apellidos}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rut">RUT:</label>
+                        <input type="text" id="rut" th:field="*{rut}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthDate">Fecha de Nacimiento:</label>
+                        <input type="date" id="birthDate" th:field="*{birthDate}">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="address">Dirección:</label>
+                        <input type="text" id="address" th:field="*{address}">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Teléfono:</label>
+                        <input type="tel" id="phone" th:field="*{phone}">
+                    </div>
+                    <div class="form-group">
+                        <label for="mail">Correo Electrónico:</label>
+                        <input type="email" id="mail" th:field="*{mail}">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Sexo:</label>
+                        <select id="gender" th:field="*{gender}">
+                            <option value="">Seleccionar Sexo</option>
+                            <option th:each="g : ${genders}" th:value="${g.id}" th:text="${g.displayName}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="maritalStatus">Estado Civil:</label>
+                        <select id="maritalStatus" th:field="*{maritalStatus}">
+                            <option value="">Seleccionar Estado Civil</option>
+                            <option th:each="ms : ${maritalStatuses}" th:value="${ms.id}" th:text="${ms.displayName}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="nationality">Nacionalidad:</label>
+                        <select id="nationality" th:field="*{nationality}">
+                            <option value="">Seleccionar Nacionalidad</option>
+                            <option th:each="n : ${nationalities}" th:value="${n.id}" th:text="${n.displayName}"></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Información Laboral</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="startDate">Fecha de Inicio:</label>
+                        <input type="date" id="startDate" th:field="*{startDate}">
+                    </div>
+                    <div class="form-group">
+                        <label for="endDate">Fecha de Fin (si aplica):</label>
+                        <input type="date" id="endDate" th:field="*{endDate}">
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeStatus">Estado Empleado:</label>
+                        <select id="employeeStatus" th:field="*{employeeStatus}">
+                            <option value="">Seleccionar Estado Empleado</option>
+                            <option th:each="es : ${employeeStatuses}" th:value="${es.id}" th:text="${es.displayName}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobTitle">Cargo:</label>
+                        <select id="jobTitle" th:field="*{jobTitle}">
+                            <option value="">Seleccionar Cargo</option>
+                            <option th:each="jt : ${jobTitles}" th:value="${jt.id}" th:text="${jt.displayName}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="workSchedule">Sistema de Jornada:</label>
+                        <select id="workSchedule" th:field="*{workSchedule}">
+                            <option value="">Seleccionar Sistema de Jornada</option>
+                            <option th:each="ws : ${workSchedules}" th:value="${ws.id}" th:text="${ws.displayName}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="scheduleType">Tipo de Jornada:</label>
+                        <select id="scheduleType" th:field="*{scheduleType}">
+                            <option value="">Seleccionar Tipo de Jornada</option>
+                            <option th:each="st : ${scheduleTypes}" th:value="${st.id}" th:text="${st.displayName}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contractType">Vigencia de Contrato:</label>
+                        <select id="contractType" th:field="*{contractType}">
+                            <option value="">Seleccionar Vigencia de Contrato</option>
+                            <option th:each="ct : ${contractTypes}" th:value="${ct.id}" th:text="${ct.displayName}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Empresa:</label>
+                        <select id="company" th:field="*{company}">
+                            <option value="">Seleccionar Empresa</option>
+                            <option th:each="c : ${companies}" th:value="${c.id}" th:text="${c.name}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="project">Proyecto:</label>
+                        <select id="project" th:field="*{project}">
+                            <option value="">Seleccionar Proyecto</option>
+                            <option th:each="p : ${projects}" th:value="${p.id}" th:text="${p.name}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="costCenter">Centro de Costo:</label>
+                        <select id="costCenter" th:field="*{costCenter}">
+                            <option value="">Seleccionar Centro de Costo</option>
+                            <option th:each="cc : ${costCenters}" th:value="${cc.id}" th:text="${cc.name}"></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Información Adicional</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="educationLevel">Nivel de Estudios:</label>
+                        <select id="educationLevel" th:field="*{educationLevel}">
+                            <option value="">Seleccionar Nivel de Estudios</option>
+                            <option th:each="el : ${educationLevels}" th:value="${el.id}" th:text="${el.displayName}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="shirtSize">Talla de Camisa:</label>
+                        <input type="text" id="shirtSize" th:field="*{shirtSize}">
+                    </div>
+                    <div class="form-group">
+                        <label for="pantsSize">Talla de Pantalón:</label>
+                        <input type="number" id="pantsSize" th:field="*{pantsSize}">
+                    </div>
+                    <div class="form-group">
+                        <label for="shoeSize">Número de Calzado:</label>
+                        <input type="text" id="shoeSize" th:field="*{shoeSize}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Información Bancaria</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="bank">Banco:</label>
+                        <select id="bank" th:field="*{bank}">
+                            <option value="">Seleccionar Banco</option>
+                            <option th:each="b : ${banks}" th:value="${b.id}" th:text="${b.name}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="accountBankNumber">Número de Cuenta Bancaria:</label>
+                        <input type="number" id="accountBankNumber" th:field="*{accountBankNumber}">
+                    </div>
+                    <div class="form-group">
+                        <label for="paymentMethod">Forma de Pago:</label>
+                        <select id="paymentMethod" th:field="*{paymentMethod}">
+                            <option value="">Seleccionar Forma de Pago</option>
+                            <option th:each="pm : ${paymentMethods}" th:value="${pm.id}" th:text="${pm.displayName}"></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="submit-button">Guardar Empleado</button>
+                <button type="button" class="cancel-button">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/human-resources/create_employee_form.js"></script>
+</body>
+</html>

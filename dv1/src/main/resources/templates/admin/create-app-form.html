@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New App</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Crear Nueva App</h2>
+        <form id="appForm">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" id="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="icon">Ícono</label>
+                <input type="text" id="icon" required>
+            </div>
+
+            <div class="form-group">
+                <label for="route">Ruta</label>
+                <input type="text" id="route" required>
+            </div>
+
+            <div class="form-group">
+                <label for="color">Color</label>
+                <input type="color" id="color" value="#2e86de">
+            </div>
+
+            <div class="form-group checkbox">
+                <input type="checkbox" id="isPublic">
+                <label for="isPublic">¿Es pública?</label>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit">Guardar</button>
+                <button type="reset" class="secondary">Limpiar</button>
+            </div>
+        </form>
+    </div>
+
+    <script type="module" src="/js/form-app.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Nuevo Rol</title>
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+<body>
+
+    <main class="admin-page">
+        <section class="form-card">
+            <h1>Crear Nuevo Rol</h1>
+
+            <div th:if="${message}" class="notification success" th:text="${message}"></div>
+            <div th:if="${error}" class="notification error" th:text="${error}"></div>
+
+            <form th:action="@{/admin/create-role}" method="post" class="role-form">
+                <div class="input-group">
+                    <label for="role">Nombre del Rol:</label>
+                    <input type="text" id="role" name="role" class="input-field" required autofocus>
+                </div>
+                <button type="submit" class="button primary">Crear Rol</button>
+            </form>
+
+            <div class="actions">
+                <a th:href="@{/admin/dashboard}" class="link secondary">Volver al Panel de Administración</a>
+            </div>
+        </section>
+    </main>
+
+    <script th:src="@{/js/admin.js}"></script>
+
+</body>
+</html>

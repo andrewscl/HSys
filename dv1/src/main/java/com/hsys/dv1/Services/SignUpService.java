@@ -24,11 +24,6 @@ public class SignUpService {
         //codificar contraseña
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-        //Asignar rol por defecto
-        if(user.getRole() == null){
-            user.setRole("USER");
-        }
-
         //Guardar el usuario
         userRepository.save(user);
 

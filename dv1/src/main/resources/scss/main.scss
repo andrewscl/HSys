@@ -2,5 +2,10 @@
 @use 'components/slideshow-video';
 @use 'components/launcher';
 @use 'components/mega-menu';
+@use 'components/private-menu';
 @use 'abstracts/mixins';
 @use 'components/signup';
+@use 'components/signin';
+@use 'admin/create-role-form';
+@use 'admin/create-app-form';
+@use 'human-resources/create-employee-form';

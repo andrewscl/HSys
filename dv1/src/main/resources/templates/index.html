@@ -47,7 +47,7 @@
         </div>
     </div>
 
-    <div th:replace="~{fragments/launcher::launcher}"></div>
+    <div th:replace="~{fragments/launcher::launcher(${apps})}"></div>
     
     <script th:src="@{/js/slideshow.js}"></script>
     <script th:src="@{/js/mega-menu.js}"></script>

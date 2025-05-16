@@ -26,8 +26,8 @@
                 <a href="#">Aplicaciones</a>
                 <div class="mega-menu">
                     <div class="mega-column">
-                        <h6>Administración</h6>
-                        <a href="#">Enlace 1</a>
+                        <h6>Recursos Humanos</h6>
+                        <a th:href="@{/hsys/employees}">Empleados</a>
                         <a href="#">Enlace 2</a>
                     </div>
                     <div class="mega-column">
@@ -91,7 +91,7 @@
                     <div class="mega-column">
                         <h6>Accesos</h6>
                         <a th:href="@{/auth/signup}">Registrarse</a>
-                        <a href="#">signin</a>
+                        <a th:href="@{/auth/signin}">Acceder</a>
                     </div>
                 </div>
             </li>

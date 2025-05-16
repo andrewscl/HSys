@@ -1,40 +1,38 @@
 package com.hsys.dv1.Controllers;
 
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.hsys.dv1.Auth.AuthRequest;
-import com.hsys.dv1.Auth.AuthResponse;
-import com.hsys.dv1.Security.JwtService;
+import com.hsys.dv1.Entities.User;
+import com.hsys.dv1.Services.SignUpService;
 
 import lombok.RequiredArgsConstructor;
 
-@RestController
+@Controller
 @RequestMapping("/auth")
 @RequiredArgsConstructor
 public class AuthController {
-    
-    private final AuthenticationManager authenticationManager;
-    private final JwtService jwtService;
 
-    @PostMapping("/login")
-    public AuthResponse login(@RequestBody AuthRequest authRequest){
-        try {
-            Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                    authRequest.getUsername(), authRequest.getPassword()));
+    private final SignUpService signUpService;
 
-            String token = jwtService.generateToken(authentication.getName());
-            return new AuthResponse(token);
-        } catch(AuthenticationException e) {
-            throw new RuntimeException("Invalid credentials");
-        }
+    @GetMapping ("/signup")
+    public String showSignUpForm (Model model){
+        model.addAttribute("user", new User());
+        return "auth/signup";
     }
 
+    @PostMapping("/signup")
+    public String processSingUpForm (User user, Model model){
+        signUpService.register(user);
+        return "redirect:/auth/signin";
+    }
+
+    @GetMapping ("/signin")
+    public String showSignInForm (Model model){
+        model.addAttribute("user", new User());
+        return "auth/signin";
+    }
 }

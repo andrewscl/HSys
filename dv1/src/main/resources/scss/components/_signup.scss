@@ -7,19 +7,18 @@ $box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 $transition: all 0.3s ease-in-out;
 
 .signup-page {
-    font-family: sans-serif;
-    background-color: $light-color;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    width: 100%; /* Asegura que ocupe todo el viewport para el centrado */
-    margin: 0; /* Elimina márgenes innecesarios */
-    padding: 2rem; /* Añade un poco de espacio alrededor del contenedor */
-    box-sizing: border-box; /* Incluye el padding en el ancho */
-}
+  font-family: sans-serif;
+  background-color: $light-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%; /* Asegura que ocupe todo el viewport para el centrado */
+  margin: 0; /* Elimina márgenes innecesarios */
+  padding: 2rem; /* Añade un poco de espacio alrededor del contenedor */
+  box-sizing: border-box;
 
-.signup-container {
+  .signup-container {
     background-color: white;
     padding: 2rem;
     border-radius: $border-radius;
@@ -28,124 +27,127 @@ $transition: all 0.3s ease-in-out;
     max-width: 400px;
 
     h2 {
-        text-align: center;
-        color: $dark-color;
-        margin-bottom: 1.5rem;
+      text-align: center;
+      color: $dark-color;
+      margin-bottom: 1.5rem;
     }
 
     form {
-        display: flex;
-        flex-direction: column;
+      display: flex;
+      flex-direction: column;
 
-        .form-group {
-            margin-bottom: 1rem;
+      .form-group {
+        margin-bottom: 1rem;
 
-            label {
-                display: block;
-                margin-bottom: 0.5rem;
-                color: $dark-color;
-                font-weight: bold;
-            }
-
-            input[type="text"],
-            input[type="password"] {
-                padding: 0.75rem;
-                border: 1px solid #ced4da;
-                border-radius: $border-radius;
-                transition: $transition;
-                width: 100%;
-                box-sizing: border-box;
-
-                &:focus {
-                    outline: none;
-                    border-color: $primary-color;
-                    box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
-                }
-            }
-
-            .password-input {
-                position: relative;
-                display: flex;
-                align-items: center;
-                width: 100%;
-                box-sizing: border-box;
-
-                input[type="password"] {
-                    flex-grow: 1;
-                    border-right: none;
-                    border-radius: $border-radius 0 0 $border-radius;
-                }
-
-                .togglePassword {
-                    background: none;
-                    border: 1px solid #ced4da;
-                    border-left: none;
-                    color: $secondary-color;
-                    padding: 0.75rem 1rem;
-                    border-radius: 0 $border-radius $border-radius 0;
-                    cursor: pointer;
-                    transition: $transition;
-                    font-size: 1rem;
-
-                    &:hover {
-                        background-color: $light-color;
-                        color: $dark-color;
-                    }
-                    &:focus {
-                        outline: none;
-                    }
-                }
-            }
-
-            .form-text {
-                display: block;
-                margin-top: 0.25rem;
-                font-size: 0.875rem;
-                color: $secondary-color;
-            }
+        label {
+          display: block;
+          margin-bottom: 0.5rem;
+          color: $dark-color;
+          font-weight: bold;
         }
 
-        .btn-primary {
-            background-color: $primary-color;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: $border-radius;
+        input[type="text"],
+        input[type="password"] {
+          padding: 0.75rem;
+          border: 1px solid #ced4da;
+          border-radius: $border-radius;
+          transition: $transition;
+          width: 100%;
+          box-sizing: border-box;
+
+          &:focus {
+            outline: none;
+            border-color: $primary-color;
+            box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+          }
+        }
+
+        .password-input {
+          position: relative;
+          display: flex;
+          align-items: center;
+          width: 100%;
+          box-sizing: border-box;
+
+          input[type="password"] {
+            flex-grow: 1;
+            border-right: none;
+            border-radius: $border-radius 0 0 $border-radius;
+          }
+
+          .togglePassword {
+            background: none;
+            border: 1px solid #ced4da;
+            border-left: none;
+            color: $secondary-color;
+            padding: 0.75rem 1rem;
+            border-radius: 0 $border-radius $border-radius 0;
             cursor: pointer;
-            font-size: 1rem;
             transition: $transition;
-            width: 100%;
-            box-sizing: border-box;
+            font-size: 1rem;
 
             &:hover {
-                background-color: darken($primary-color, 10%);
+              background-color: $light-color;
+              color: $dark-color;
             }
+
             &:focus {
-                outline: none;
-                box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.5);
+              outline: none;
             }
+          }
         }
 
-        .error-message {
-            color: red;
-            margin-top: 1rem;
-            text-align: center;
+        .form-text {
+          display: block;
+          margin-top: 0.25rem;
+          font-size: 0.875rem;
+          color: $secondary-color;
         }
-    }
+      }
 
-    .login.link {
-        margin-top: 1.5rem;
+      .btn-primary {
+        background-color: $primary-color;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: $border-radius;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: $transition;
+        width: 100%;
+        box-sizing: border-box;
+
+        &:hover {
+          background-color: darken($primary-color, 10%);
+        }
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.5);
+        }
+      }
+
+      .error-message {
+        color: red;
+        margin-top: 1rem;
         text-align: center;
-        color: $secondary-color;
-
-        a {
-            color: $primary-color;
-            text-decoration: none;
-            font-weight: bold;
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
+      }
     }
+
+    &.login {
+      margin-top: 1.5rem;
+      text-align: center;
+      color: $secondary-color;
+
+      a {
+        color: $primary-color;
+        text-decoration: none;
+        font-weight: bold;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 }
